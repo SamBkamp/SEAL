@@ -20,6 +20,8 @@
  ;; If there is more than one, they won't work right.
  )
 
+(magit-version)
+
 (defun bkamp/format-main-line()
   (kill-whole-line) 
   (insert "int main(int argc, char* argv[]){\n\n}")
