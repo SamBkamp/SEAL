@@ -15,15 +15,7 @@
   (interactive)
   (if (string= (thing-at-point 'line) "main")
       (insert "int main(int argc, char* argv[]){\n}")
-    (print 'very-false)))
-
-
-;(defun int-main ()
-;  (interactive)
-;  (if (string= (thing-at-point 'line) "main")
-;      (print 'true)
-;      (indent-for-tab-command)))
-
+    (indent-for-tab-command)))
 
 (defun closing-brace ()
   (interactive)
