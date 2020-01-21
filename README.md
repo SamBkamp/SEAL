@@ -1,7 +1,8 @@
-      +--------+
-      |  SEMP  |
-      +--------+
-
-**S**am's **EM**acs **P**lugin
+```
++--------+
+|  SEAL  |
++--------+
+```
+**S**am's **E**m**A**cs p**L**ugin
 
 my own config files to customise my emacs
