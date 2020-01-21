@@ -59,10 +59,12 @@
 
 (defun closing-brace ()
   (interactive)
-  (insert "{\n}")
-  (backward-char 2))
-
-
+  (save-excursion
+    (insert "{\n}")
+    (indent-for-tab-command)
+    )
+)
+  
 (defun closing-bracket ()
   (interactive)
   (insert "()")
