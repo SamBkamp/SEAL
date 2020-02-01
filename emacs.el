@@ -63,8 +63,8 @@
   (interactive)
   (save-excursion
     (insert "{\n}")
-    (indent-for-tab-command)
     )
+  (forward-char 1)
 )
   
 (defun closing-bracket ()
@@ -72,6 +72,12 @@
   (insert "()")
   (backward-char 1))
 
+(defun sq_bracket ()
+  (interactive)
+  (insert "[];")
+  (backward-char 2)
+  ;might remove the semi colon if it doesn't work.
+  )
 
 (add-hook 'c-initialization-hook
   (lambda () (define-key c-mode-base-map "(" 'closing-bracket)))
@@ -82,6 +88,9 @@
 
 (add-hook 'c-initialization-hook
   (lambda () (define-key c-mode-base-map (kbd "TAB") 'int-main)))
+
+(add-hook 'c-initialization-hook
+  (lambda () (define-key c-mode-base-map (kbd "[") 'sq_bracket)))
 
 
 (defun rofrol/indent-region(numSpaces)
