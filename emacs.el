@@ -45,6 +45,20 @@
   )
 
 
+(defun bkamp/format-while-line()
+  (kill-whole-line)
+  (insert "\n")
+  (backward-char 1)
+  (indent-for-tab-command)
+  (insert "while(condition){\n\n}")
+  (indent-for-tab-command)
+  (previous-line)
+  (previous-line)
+  (indent-for-tab-command)
+  (forward-char 5)
+  )
+
+
 (defun int-main ()
   (interactive)
   (if (string= (thing-at-point 'line) "main")
@@ -53,7 +67,10 @@
 	(bkamp/format-main-line)
       (if (string= (current-word) "forc")
 	  (bkamp/format-for-line)
-	(indent-for-tab-command)
+	(if (string= (current-word) "whilec")
+	    (bkamp/format-while-line)
+	  (indent-for-tab-command)
+	  )
 	)
       )
     )
