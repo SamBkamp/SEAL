@@ -1,4 +1,5 @@
 (require 'package)
+(load-file "~/programming/SEAL/php-mode.el")
 
 (package-initialize)
 
