@@ -9,8 +9,11 @@ my own config files to customise my emacs
 
 install:
 
-symlink the emacs.el file from here into ~/
+install the package with:
 
-`ln -s this/folder/emacs.el ~/.emacs.el`
+```lisp
+(install-package-file "/path/to/SEAL/SEAL.el")
+```
 
-change line 2 to reflect the actual location of the included php.el file (should be the same as the file this project is in)
+You can do this in the mini buffer (`M-:`) or in the scratch buffer
+
