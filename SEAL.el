@@ -160,4 +160,6 @@
 (global-set-key (kbd "C-<") 'rofrol/untab-region)
 
 
+;;; SEAL.el ends here
+
 (provide 'SEAL)
