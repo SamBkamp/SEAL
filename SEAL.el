@@ -41,21 +41,19 @@
   (indent-for-tab-command)
   )
 
-(defun bkamp/format-for-line()
+(defun bkamp/format-for-line ()
   (interactive)
-  (kill-whole-line)
-  (insert "for (iterator; condition; increment){\n\n}")
-  (forward-line -1)
-  (indent-for-tab-command)
+  (forward-char -1)
+  (delete-char 1)
+  (insert "(iterator; condition; increment){ }")
   )
 
 
-(defun bkamp/format-while-line()
+(defun bkamp/format-while-line ()
   (interactive)
-  (kill-whole-line)
-  (insert "while(condition){\n\n}")
-  (forward-line -1)
-  (indent-for-tab-command)
+  (forward-char -1)
+  (delete-char 1)
+  (insert "(condition){ }")
   )
 
 
