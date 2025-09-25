@@ -69,7 +69,7 @@
 (defun sq_bracket ()
   (interactive)
   (insert "[]")
-  (backward-char 2)
+  (forward-char 1)
   ;might remove the semi colon if it doesn't work.
   )
 
