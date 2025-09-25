@@ -27,7 +27,14 @@
   (kill-whole-line)
   (save-excursion
     (goto-char (point-min))
-    (insert "#include <stdio.h>\n#include <stdlib.h>")
+    (insert "#include <stdio.h>\n#include <stdlib.h>\n")
+    )
+  (if (< (line-number-at-pos) 4)
+      (progn
+       (forward-line 2)
+       (dotimes (i (- 4 (line-number-at-pos)))
+	(insert "\n")
+	))
     )
   (insert "int main(int argc, char* argv[]){\n\n}")
   (backward-char 2)
