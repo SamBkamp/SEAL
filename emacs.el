@@ -56,7 +56,7 @@
 (defun closing-brace ()
   (interactive)
   (save-excursion
-    (insert "{\n}")
+    (insert "{}")
     )
   (forward-char 1)
 )
