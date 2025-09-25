@@ -1,6 +1,10 @@
 
 (defun bkamp/format-main-line()
-  (kill-whole-line) 
+  (kill-whole-line)
+  (save-excursion
+    (goto-char (point-min))
+    (insert "#include <stdio.h>\n#include <stdlib.h>")
+    )
   (insert "int main(int argc, char* argv[]){\n\n}")
   (backward-char 2)
   (indent-for-tab-command)
