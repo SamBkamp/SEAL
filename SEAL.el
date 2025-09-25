@@ -1,3 +1,27 @@
+;;; SEAL.el --- Sam's EmAcs pLugin 
+;;
+;; Filename: SEAL.el
+;; Package-Requires: ()
+;; Version: 1
+;; Package-Version: 1
+;;
+;; Description: Sam's emacs config stuff
+;; Author: Sam Bonnekamp
+;; Maintainer: Sam Bonnekamp
+;; Created: Wed Sep 25 2025 (+0800)
+;; Last-Updated: Wed Sep 25 2025 (+0800)
+;; Keywords: config
+;; Compatibility: GNU Emacs: 21.x, 22.x, 23.x
+;;
+;; Features that might be required by this library:
+;;
+;;   None
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;
+;;; Code:
+
 
 (defun bkamp/format-main-line()
   (kill-whole-line)
@@ -134,3 +158,6 @@
 
 (global-set-key (kbd "C->") 'rofrol/tab-region)
 (global-set-key (kbd "C-<") 'rofrol/untab-region)
+
+
+(provide 'SEAL)
