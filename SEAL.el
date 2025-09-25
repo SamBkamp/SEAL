@@ -96,63 +96,14 @@
   ;might remove the semi colon if it doesn't work.
   )
 
-(add-hook 'c-initialization-hook
-  (lambda () (define-key c-mode-base-map "(" 'closing-bracket)))
+(defun SEAL-c-mode-setup ()
+  (define-key (current-local-map) "(" 'closing-bracket)
+  (define-key (current-local-map) "{" 'closing-brace)
+  (define-key (current-local-map) (kbd "TAB") 'int-main)
+  (define-key (current-local-map) (kbd "[") 'sq_bracket)
+  )
 
-(add-hook 'c-initialization-hook
-  (lambda () (define-key c-mode-base-map "{" 'closing-brace)))
-
-
-(add-hook 'c-initialization-hook
-  (lambda () (define-key c-mode-base-map (kbd "TAB") 'int-main)))
-
-(add-hook 'c-initialization-hook
-  (lambda () (define-key c-mode-base-map (kbd "[") 'sq_bracket)))
-
-
-(defun rofrol/indent-region(numSpaces)
-    (progn 
-        ; default to start and end of current line
-        (setq regionStart (line-beginning-position))
-        (setq regionEnd (line-end-position))
-
-        ; if there's a selection, use that instead of the current line
-        (when (use-region-p)
-            (setq regionStart (region-beginning))
-            (setq regionEnd (region-end))
-        )
-
-        (save-excursion ; restore the position afterwards            
-            (goto-char regionStart) ; go to the start of region
-            (setq start (line-beginning-position)) ; save the start of the line
-            (goto-char regionEnd) ; go to the end of region
-            (setq end (line-end-position)) ; save the end of the line
-
-            (indent-rigidly start end numSpaces) ; indent between start and end
-            (setq deactivate-mark nil) ; restore the selected region
-        )
-    )
-)
-
-(defun rofrol/indent-lines(&optional N)
-    (interactive "p")
-    (indent-rigidly (line-beginning-position)
-                    (line-end-position)
-                    (* (or N 1) tab-width)))
-
-(defun rofrol/untab-region (&optional N)
-    (interactive "p")
-    (rofrol/indent-region (* (* (or N 1) tab-width)-1)))
-
-(defun  rofrol/tab-region (N)
-    (interactive "p")
-    (if (use-region-p)
-        (rofrol/indent-region (* (or N 1) tab-width)) ; region was selected, call indent-region
-        (rofrol/indent-lines N); else insert spaces as expected
-    ))
-
-(global-set-key (kbd "C->") 'rofrol/tab-region)
-(global-set-key (kbd "C-<") 'rofrol/untab-region)
+(add-hook 'c-mode-common-hook 'SEAL-c-mode-setup)
 
 
 ;;; SEAL.el ends here
