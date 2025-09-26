@@ -71,19 +71,19 @@
 (defun closing-brace ()
   (interactive)
   (insert "{}")
-  (backwards-char 1)
+  (backward-char 1)
 )
   
 (defun closing-bracket ()
   (interactive)
   (insert "()")
-  (backwards-char 1)
+  (backward-char 1)
 )
 
 (defun sq_bracket ()
   (interactive)
   (insert "[]")
-  (backwards-char 1)
+  (backward-char 1)
   )
 
 (defun SEAL-c-mode-setup ()
