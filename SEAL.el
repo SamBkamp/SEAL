@@ -70,21 +70,17 @@
 
 (defun closing-brace ()
   (interactive)
-  (save-excursion
-    (insert "{}")
-    )
-  (forward-char 1)
+  (insert "{}")    
 )
   
 (defun closing-bracket ()
   (interactive)
   (insert "()")
-  (backward-char 1))
+)
 
 (defun sq_bracket ()
   (interactive)
   (insert "[]")
-  (forward-char 1)
   ;might remove the semi colon if it doesn't work.
   )
 
