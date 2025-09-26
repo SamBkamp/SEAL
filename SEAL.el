@@ -70,18 +70,20 @@
 
 (defun closing-brace ()
   (interactive)
-  (insert "{}")    
+  (insert "{}")
+  (backwards-char 1)
 )
   
 (defun closing-bracket ()
   (interactive)
   (insert "()")
+  (backwards-char 1)
 )
 
 (defun sq_bracket ()
   (interactive)
   (insert "[]")
-  ;might remove the semi colon if it doesn't work.
+  (backwards-char 1)
   )
 
 (defun SEAL-c-mode-setup ()
