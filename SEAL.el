@@ -69,9 +69,12 @@
 
 (defun bkamp/format-while-line ()
   (interactive)
-  (forward-char -1)
-  (delete-char 1)
-  (insert "(condition){ }")
+  (save-excursion
+    (forward-char -1)
+    (delete-char 1)
+    (insert "(condition){ }")
+    )
+  (forward-char 1)
   )
 
 
