@@ -41,6 +41,21 @@
   (indent-for-tab-command)
   )
 
+(defun bkamp/auto-include ()
+  (if (and (current-word) (string-match-p ".*\\.h$" (thing-at-point 'line t)))
+      (let ((x (substring (thing-at-point 'line t) 1 -1))) ;string first char (#) and last char (\n)
+        (kill-whole-line)
+        (save-excursion
+          (back-to-indentation)
+          (insert "#include <")
+          (insert x)
+          (insert ">\n")
+          )
+        (end-of-line)
+        )
+    )
+  )
+
 (defun bkamp/format-for-line ()
   (interactive)
   (forward-char -1)
@@ -65,6 +80,8 @@
       (bkamp/format-for-line))
   (if (string= (current-word) "whilec")
       (bkamp/format-while-line))
+  (if (eq (char-after (line-beginning-position)) (string-to-char "#"))
+                      (bkamp/auto-include))
   (indent-for-tab-command)
   )
 
