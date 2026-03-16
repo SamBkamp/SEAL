@@ -58,9 +58,12 @@
 
 (defun bkamp/format-for-line ()
   (interactive)
-  (forward-char -1)
-  (delete-char 1)
-  (insert "(iterator; condition; increment){ }")
+  (save-excursion
+    (forward-char -1)
+    (delete-char 1)
+    (insert "(iterator; condition; increment){ }")
+    )
+  (forward-char 1)
   )
 
 
