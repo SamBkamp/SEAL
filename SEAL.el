@@ -23,6 +23,8 @@
 ;;; Code:
 
 
+(load-file "avra.el")
+
 (defun bkamp/format-main-line()
   (kill-whole-line)
   (save-excursion
@@ -109,6 +111,12 @@
   (backward-char 1)
   )
 
+(defun paren-autocomplete ()
+  (interactive)
+  (insert "()")
+  (backward-char 1)
+  )
+
 (defun SEAL-c-mode-setup ()
   (define-key (current-local-map) "(" 'closing-bracket)
   (define-key (current-local-map) "{" 'closing-brace)
@@ -116,7 +124,12 @@
   (define-key (current-local-map) (kbd "[") 'sq_bracket)
   )
 
+(defun SEAL-el-mode-setup ()
+  (define-key (current-local-map) "(" 'paren-autocomplete)
+  )
+
 (add-hook 'c-mode-common-hook 'SEAL-c-mode-setup)
+(add-hook 'emacs-lisp-mode-hook 'SEAL-el-mode-setup)
 
 
 ;;; SEAL.el ends here
