@@ -23,7 +23,7 @@
 ;;; Code:
 
 
-(load-file "avra.el")
+(load-file "~/projects/SEAL/avra.el")
 
 (defun bkamp/format-main-line()
   (kill-whole-line)
@@ -130,6 +130,7 @@
 
 (add-hook 'c-mode-common-hook 'SEAL-c-mode-setup)
 (add-hook 'emacs-lisp-mode-hook 'SEAL-el-mode-setup)
+;(add-hook 'avra-mode-hook 'SEAL-avra-mode-setup)
 
 
 ;;; SEAL.el ends here
